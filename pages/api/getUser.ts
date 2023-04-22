@@ -15,8 +15,8 @@ export default async (req: IGetUser, res: NextApiResponse<IApiResponse>) => {
     });
 
     res.status(200).json({ status: 'success', data: userFound });
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    throw new Error(e as string);
+    throw new Error(e).message;
   }
 };

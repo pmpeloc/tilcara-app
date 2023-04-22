@@ -15,8 +15,8 @@ export default async (req: IAddUser, res: NextApiResponse<IApiResponse>) => {
     });
 
     res.status(201).json({ status: 'success', data: newUser });
-  } catch (e) {
+  } catch (e: any) {
     console.error(e);
-    throw new Error(e as string);
+    throw new Error(e).message;
   }
 };
